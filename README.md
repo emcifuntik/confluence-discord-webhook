@@ -38,6 +38,7 @@ npm install
 ```
 CONFLUENCE_URL=Your_Confluence_Instance_URL
 DISCORD_WEBHOOK_URL=Your_Discord_Webhook_URL
+WEBHOOK_ROUTE_SECRET=Random_Secure_String
 PORT=8067
 ```
 
@@ -51,7 +52,7 @@ The server should start, and you will see a message indicating that it's running
 
 ## Usage
 
-To use this application, you need to set up a webhook in your Confluence instance that targets `http://localhost:8067/webhook-conf` (adjust the port if necessary). Whenever Confluence sends a webhook event to this endpoint, the application will process the event and forward a formatted message to the specified Discord channel.
+To use this application, you need to set up a webhook in your Confluence instance that targets `http://localhost:8067/webhook-conf/${WEBHOOK_ROUTE_SECRET}` (adjust the port if necessary and paste WEBHOOK_ROUTE_SECRET value). Whenever Confluence sends a webhook event to this endpoint, the application will process the event and forward a formatted message to the specified Discord channel.
 
 ## Contributing
 
