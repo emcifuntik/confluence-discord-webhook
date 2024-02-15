@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const routeSecret = process.env.WEBHOOK_ROUTE_SECRET;
+console.log("Route secret: " + routeSecret);
 
 app.post('/webhook-conf/' + routeSecret, async (req, res) => {
   const confluencePayload = req.body;
