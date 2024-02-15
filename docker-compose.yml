@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  confluence-discord-webhook:
+    pull_policy: build
+    restart: "always"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: api
+    environment:
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - CONFLUENCE_URL=${CONFLUENCE_URL}
+      - WEBHOOK_ROUTE_SECRET=${WEBHOOK_ROUTE_SECRET}
+      - PORT=${PORT}
